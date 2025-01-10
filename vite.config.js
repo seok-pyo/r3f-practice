@@ -38,11 +38,12 @@
 
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import restart from 'vite-plugin-restart';
 
 export default defineConfig({
   root: 'src', // Vite의 루트 디렉토리를 src로 설정
   build: {
     outDir: '../dist', // 빌드 결과물을 프로젝트 루트의 dist 폴더에 저장
   },
-  plugins: [react()],
+  plugins: [react(), restart({ restart: ['../public/**'] })],
 });
